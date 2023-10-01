@@ -1,0 +1,16 @@
+1. Why did you choose the tools, libraries, and language you used for the coding exercise?
+
+There are many reasons I chose Python's Flask as my framework and tools for this exercise but I will just list out top 3 reasons. Firstly, it is the familiarity of using Python. As an individual who has built an entire eCommerce platform in Flask and MySQL, I am really confident in writing in Python therefore I chose Python. Though, it does not mean I am not willing to challenge myself in a new lanaguage, rather I am trying to showcase my expertise in Python's Flask. Second of all, simplicity. Given I have 1 midterm with 18 credits worth of classes and 15 hours of work every week, I have really limited time to write this exercise and therefore simplicity is on my top list. Python's Flask is such a powerful framework that allows me to write this whole Restful API in less than 10 hours. Thirdly, the support you receives using Python. With a huge community in Python, there are many libraries you have access to such as datetime, random, even encryption library which allows you to perform many, if not every, task you need.
+
+2. What are the advantages and disadvantages of your solution?
+
+Advantages are that it is simple and straightforward. I believe that there are really little choices outside Python that allows you to build an API server from scratch in less than 5 hours. Python's Flask or even FastAPI is really an advantage if time given to build this application is a huge constraint.
+A big disadvantage of my solution is using json file as data storage. No one should ever do this in actual application, instead we should utilize relational database like PostgreSQL or MySQL to store our data. Secondly, using Python obviously will mean that the speed or performance of the API is not as great compared to languages like C++, which can be up to 45,000 times faster with enchance mode. To resolve this, I am challenging myself learning C++.
+
+3. What has been a favorite school/personal project thus far? What about it that challenged you?
+
+My favorite is definitely my own project - building an eCommerce web application with Python from scratch, and all the projects in my Artificial Intelligence's class. \
+To me, my self-initiated project really strechted me out in areas like efficiency, design, security, data validation, and many more which are mostly real-life situations.
+I love that I am challenged on what decisions I should make given I know many options, for example, what sorting algorithms should I use given I know heap sort, merge sort, insertion sort, and many more, what data structures should I use given that I know linked list, heap arrays, and many more.
+From setting up the virtual machine to even writing out the jquery codes, I am challenged rigously on providing a solution quickly so that my server can stay running in perfect condition. Like working in Fetch, I believe there will be times where solutions are required in a short amount of time and this is when we have to decide what best easy solution we can first provide before optimizing it to the best one.
+Therefore, I am confident to say that given a bigger take home exercise, I will still be able to complete it even if I have no idea what it is.
