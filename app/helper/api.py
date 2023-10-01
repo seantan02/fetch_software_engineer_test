@@ -85,10 +85,8 @@ def spend_user_points(user_points:dict, points_to_spend:int) -> bool:
             if points_to_spend >= this_user_points:
                 points_to_spend -= this_user_points
                 user_points[id]["points"] = 0
-                if this_user_points > 0:
-                    summary.append({"payer":payer, "points": -this_user_points})
-                else:
-                    summary.append({"payer":payer, "points": f"+{-this_user_points}"})
+                #I assume you want a positive or a negative integer representing the deducted amount
+                summary.append({"payer":payer, "points": -this_user_points})
             else:
                 user_points[id]["points"] = (this_user_points - points_to_spend)
                 summary.append({"payer":payer, "points": -points_to_spend})
