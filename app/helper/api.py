@@ -59,11 +59,9 @@ def spend_user_points(user_points:dict, points_to_spend:int) -> bool:
         payer = record["payer"]
         points = int(record["points"])
         date = record["datetime"]
-        #Only if the points added are positive, else we ignore it
-        if points > 0:
-            #Convert date to datetime object
-            date = convert_string_to_datetime(date, datetime_format="%Y-%m-%d %H:%M:%S")
-            id_in_datetime_order.append([id, date])
+        #Convert date to datetime object
+        date = convert_string_to_datetime(date, datetime_format="%Y-%m-%d %H:%M:%S")
+        id_in_datetime_order.append([id, date])
         #Add to total
         total_points += points
     #Sort the datetime in order
@@ -81,13 +79,14 @@ def spend_user_points(user_points:dict, points_to_spend:int) -> bool:
             this_user_points = int(user_points[id]["points"])
             payer = user_points[id]["payer"]
             #If this_user_points == 0 we ignore it
-            if this_user_points <= 0:
+            if this_user_points == 0:
                 continue
             #If points to spend is more than or equal
             if points_to_spend >= this_user_points:
                 points_to_spend -= this_user_points
                 user_points[id]["points"] = 0
-                summary.append({"payer":payer, "points": -this_user_points})
+                if this_user_points > 0:
+                    summary.append({"payer":payer, "points": -this_user_points})
             else:
                 user_points[id]["points"] = (this_user_points - points_to_spend)
                 summary.append({"payer":payer, "points": -points_to_spend})
