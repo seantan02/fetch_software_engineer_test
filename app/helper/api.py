@@ -102,7 +102,7 @@ def summarize_user_points(user_points:dict)->dict:
     #We loop through the dictionary and retrieve all points
     for id in user_points:
         user_point = user_points[id]
-        this_user_point = user_point["points"]
+        this_user_point = int(user_point["points"])
         this_payer = user_point["payer"]
         if this_payer in summary:
             summary[this_payer] += this_user_point
