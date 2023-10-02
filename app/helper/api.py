@@ -3,18 +3,38 @@ import random
 from datetime import datetime
 
 def read_user_points(filepath = "/data/user_points.json") -> dict:
+    """
+    This function reads user points data from a JSON file located at the specified `filepath` (default is "/data/user_points.json").
+    :param filepath: The file path to the JSON file containing user points data. Defaults to "/data/user_points.json".
+    :return: dict: A dictionary containing the loaded user points data.
+    """
     with open(filepath, "r", encoding="utf-8") as file:
         data = json.load(file)
 
     return data
 
 def write_user_points(data:dict, filepath) -> bool:
+    """
+    This function takes a dictionary `data` and a `filepath` as input and writes the contents of the `data` dictionary to a JSON file specified by `filepath`.
+    :param data: dict
+        A dictionary containing user points data to be written to the file.
+    :param filepath: str
+        The file path to the JSON file where the data will be written.
+    :return: bool True if the write operation was successful, otherwise False.
+    """
+
     with open(filepath, "w") as file:
         json.dump(data, file)
 
     return True
 
 def generate_unique_id(user_points) -> int:
+    """
+    This function generates a unique ID as an integer.
+    :param user_points: dict
+        A dictionary containing existing user points data.
+    :return: A unique integer ID.
+    """
     unique_id = random.randint(10**8, (10**9)-1)
     
     while unique_id in user_points:
@@ -23,6 +43,20 @@ def generate_unique_id(user_points) -> int:
     return unique_id
 
 def add_user_points(user_points:dict, payer, points_to_add:int, timestamp, datetime) -> bool:
+    """
+    This function adds user points data to the `user_points` dictionary.
+    :param user_points: dict
+        A dictionary containing user points data.
+    :param payer: 
+        The payer associated with the points to be added.
+    :param points_to_add: int
+        The number of points to be added.
+    :param timestamp: 
+        The timestamp associated with the addition.
+    :param datetime: 
+        The date and time of the addition.
+    :return: True if the addition was successful, otherwise False.
+    """
     assert isinstance(user_points, dict), "User points data provided is not a dictionary"
     id = generate_unique_id(user_points)
     #Now we have generate a unique ID for each adding
@@ -38,8 +72,10 @@ def add_user_points(user_points:dict, payer, points_to_add:int, timestamp, datet
 def spend_user_points(user_points:dict, points_to_spend:int) -> bool:
     """
     This method spends user's points given there's sufficient points. Oldest points will be spent and no payer will have negative value.
-    :param user_points: The user's points dictionary data
-    :param points_to_spend: The amount we are spending
+    :param user_points: dictionary
+        The user's points dictionary data
+    :param points_to_spend: int
+        The amount we are spending
     :return: Updated user's points dictionary, list of summary; Raise exception if there's insufficient points.
     """
 
@@ -96,6 +132,12 @@ def spend_user_points(user_points:dict, points_to_spend:int) -> bool:
     return user_points, summary
 
 def summarize_user_points(user_points:dict)->dict:
+    """
+    This method summarizes user's points dictionary and returns a dictionary
+    :param user_points: dictionary
+        The user's points dictionary data
+    :return: A dictionary with format {"PAYER": 10000}
+    """
     #We define a variable of dict we returning
     summary = dict()
     #We loop through the dictionary and retrieve all points
@@ -111,13 +153,29 @@ def summarize_user_points(user_points:dict)->dict:
     return summary
 
 #Datetime functions
-def convert_timestamp_to_datetime(timestamp_str, timestamp_format):
+def convert_timestamp_to_datetime(timestamp_str, timestamp_format, format_to_convert = "%Y-%m-%d %H:%M:%S"):
+    """
+    This method converts a timestamp object to datetime object
+    :param timestamp_str: str
+        The timestamp string you are converting
+    :param timestamp_format: string
+        The format of the string given
+    :param format_to_convert: string
+        The format to convert to (default to YEAR-MONTH-DAY HOUR:MINUTE:SECOND)
+    :return: Datetime object
+    """
     # Parse the string and convert it to a datetime object
     datetime_obj = datetime.strptime(timestamp_str, timestamp_format)
-    formatted_datetime_str = datetime_obj.strftime("%Y-%m-%d %H:%M:%S")
+    formatted_datetime_str = datetime_obj.strftime(format_to_convert)
     return formatted_datetime_str
 
 def convert_string_to_datetime(string, datetime_format):
+    """
+    This method converts a string to datetime object
+    :param datetime_format: string
+        The datetime format you want
+    :return: Datetime object
+    """
     # Parse the string and convert it to a datetime object
     datetime_obj = datetime.strptime(string, datetime_format)
 

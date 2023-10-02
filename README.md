@@ -14,3 +14,7 @@ This application is an application that is ready to receive API calls and perfor
 10. To restart all the points for user, type "python3 restart.py" and enter!
 
 You should see messages printed out on the terminal! Interestingly, if you go to http://localhost:8000/balance, you can see the user's points too!
+
+For real world API application, please DO NOT implement the .json file data storage feature shown here because it is never a good idea! Use a relational database like PostgreSQL instead because it posses crucial feature like making sure 1 query is being execute at a time to prevent complications when modifying data!
+
+Also, please remember to always test your application locally for security before going live!
