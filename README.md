@@ -9,10 +9,10 @@ This application is an application that is ready to receive API calls and perfor
 5. Then type in "pip3 install -r requirements.txt"
 6. Now type in "python3 main.py" to run the server
 7. Now open another terminal and follow these steps below to play with the application:
-    • To call api action on /add endpoint, type "python3 add_tester.py" and enter.
-    • To call api action on /spend endpoint, type "python3 spend_tester.py" and enter.
-    • To call api action on /balance endpoint, type "python3 balance_tester.py" and enter.
-    • To restart all the points for user, type "python3 restart.py" and enter!
+    - To call api action on /add endpoint, type "python3 add_tester.py" and enter.
+    - To call api action on /spend endpoint, type "python3 spend_tester.py" and enter.
+    - To call api action on /balance endpoint, type "python3 balance_tester.py" and enter.
+    - To restart all the points for user, type "python3 restart.py" and enter!
 
 You should see messages printed out on the terminal! Interestingly, if you go to http://localhost:8000/balance, you can see the user's points too!
 
